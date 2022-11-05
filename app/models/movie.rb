@@ -13,4 +13,15 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+  def director
+    #use director_id FK value 
+    # go to director table, look at ID column
+    # return the result
+    d_id = self.director_id 
+    matching_directors = Director.where({:id => d_id})
+    the_director = matching_directors.at(0)
+
+    return the_director
+  end
+
 end
